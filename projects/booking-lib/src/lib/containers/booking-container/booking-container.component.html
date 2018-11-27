@@ -1,0 +1,20 @@
+<div class='row'>
+  <div class='col-md-4'>
+    <app-booking-list
+    [bookings]="bookings$ | async"
+    [selectedBooking]="selectedBooking$ | async"
+	  [errorMessage]="errorMessage$ | async"
+    (initializeNewBooking)="(newBooking())"
+    (selected)="bookingSelected($event)"
+    ></app-booking-list>
+  </div>
+  <div class='col-md-8'>
+    <app-booking-edit
+    [selectedBooking]="selectedBooking$ | async"
+	  [errorMessage]="errorMessage$ | async"
+    (clearCurrent)="clearBooking()"
+    (update)="updateBooking($event)"
+    (delete)="deleteBooking($event)"
+    (create)="saveBooking($event)"></app-booking-edit>
+  </div>
+</div>

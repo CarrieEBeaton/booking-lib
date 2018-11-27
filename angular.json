@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": []
           },
@@ -115,6 +116,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "booking-lib": {
+      "root": "projects/booking-lib",
+      "sourceRoot": "projects/booking-lib/src",
+      "projectType": "library",
+      "prefix": "amadeus",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/booking-lib/tsconfig.lib.json",
+            "project": "projects/booking-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/booking-lib/src/test.ts",
+            "tsConfig": "projects/booking-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/booking-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/booking-lib/tsconfig.lib.json",
+              "projects/booking-lib/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
