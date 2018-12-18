@@ -14,7 +14,7 @@ describe('BookingAppComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BookingAppComponent);
+    fixture = TestBed.createComponent(BookingLibComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
